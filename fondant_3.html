@@ -166,7 +166,7 @@
   <div class="container">
 
     <div class="photo-container">
-      <img src="https://mapatisserie.fr/wp-content/uploads/2024/02/recette-fondant-chocolat-01.jpg" alt="Fondant au chocolat" id="recipe-photo" />
+      <img src=https://mapatisserie.fr/wp-content/uploads/2024/02/recette-fondant-chocolat-01.jpg" alt="Fondant au chocolat" id="recipe-photo" />
     </div>
 
     <div class="print-btn">
@@ -181,7 +181,7 @@
     <div class="section">
       <h2>Ingrédients</h2>
       <ul id="ingredients-list">
-        <!-- La liste sera remplie par JavaScript -->
+        <!-- Dynamically filled -->
       </ul>
     </div>
 
@@ -212,7 +212,6 @@
   </div>
 
   <script>
-    // Ingrédients de base pour 6 personnes
     const baseIngredients = {
       "Chocolat noir": 200,
       "Beurre": 150,
@@ -231,15 +230,13 @@
       "Pincée de sel": ""
     };
 
-    // Met à jour la liste des ingrédients en fonction du nombre de portions
     function updateIngredients() {
       const portions = parseInt(document.getElementById("portionInput").value);
       const list = document.getElementById("ingredients-list");
       list.innerHTML = "";
       for (let item in baseIngredients) {
         const value = baseIngredients[item] * (portions / 6);
-        // Œufs et pincée arrondis à l'entier, les autres à 1 décimale
-        const rounded = (item === "Œufs" || item === "Pincée de sel") ? Math.round(value) : Math.round(value * 10) / 10;
+        const rounded = item === "Œufs" || item === "Pincée de sel" ? Math.round(value) : Math.round(value * 10) / 10;
         const li = document.createElement("li");
         li.textContent = `${rounded} ${unit[item]} ${item}`;
         list.appendChild(li);
@@ -265,7 +262,7 @@
           displayTime();
         } else {
           clearInterval(timer);
-          alert("🎉 Le fondant est prêt !");
+          alert("🍰 Le fondant est prêt !");
         }
       }, 1000);
     }
