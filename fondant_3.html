@@ -91,9 +91,12 @@
       background: #a37756;
     }
 
-    .print-btn {
-      text-align: right;
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
       margin-bottom: 2rem;
+      gap: 1rem;
     }
 
     .portion-control {
@@ -129,8 +132,12 @@
       font-weight: bold;
     }
 
-    .timer button {
-      margin: 0.5rem;
+    footer {
+      text-align: center;
+      background-color: #f3e8e2;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-style: italic;
     }
 
     @media print {
@@ -140,9 +147,10 @@
         margin: 0 !important;
       }
 
-      .print-btn,
+      .btn-container,
       .portion-control,
-      .timer {
+      .timer,
+      footer {
         display: none !important;
       }
 
@@ -166,59 +174,70 @@
   <div class="container">
 
     <div class="photo-container">
-      <img src=https://mapatisserie.fr/wp-content/uploads/2024/02/recette-fondant-chocolat-01.jpg" alt="Fondant au chocolat" id="recipe-photo" />
+      <img src="https://mapatisserie.fr/wp-content/uploads/2024/02/recette-fondant-chocolat-01.jpg" alt="Fondant au chocolat" id="recipe-photo" />
     </div>
 
-    <div class="print-btn">
-      <button class="btn" onclick="window.print()">üñ®Ô∏è Imprimer la recette</button>
+    <!-- Boutons Accueil + Imprimer -->
+    <div class="btn-container">
+      <a href="index.html" class="btn">?? Retour ‡ l'accueil</a>
+      <button class="btn" onclick="window.print()">??? Imprimer la recette</button>
     </div>
 
+    <!-- ContrÙle des portions -->
     <div class="portion-control">
       <label for="portionInput">Nombre de personnes :</label>
       <input type="number" id="portionInput" value="6" min="1" onchange="updateIngredients()" />
     </div>
 
+    <!-- IngrÈdients -->
     <div class="section">
-      <h2>Ingr√©dients</h2>
-      <ul id="ingredients-list">
-        <!-- Dynamically filled -->
-      </ul>
+      <h2>IngrÈdients</h2>
+      <ul id="ingredients-list"></ul>
     </div>
 
+    <!-- Instructions -->
     <div class="section">
       <h2>Instructions</h2>
       <ol>
-        <li>Pr√©chauffez le four √† 180¬∞C (th.6).</li>
+        <li>PrÈchauffez le four ‡ 180∞C (th.6).</li>
         <li>Faites fondre le chocolat et le beurre au bain-marie.</li>
-        <li>Dans un saladier, battez les ≈ìufs avec le sucre jusqu'√† ce que le m√©lange blanchisse.</li>
-        <li>Ajoutez la farine, puis le m√©lange chocolat/beurre fondu.</li>
-        <li>Versez dans un moule beurr√© et farin√©.</li>
-        <li>Enfournez pendant 15 √† 20 minutes. L'ext√©rieur doit √™tre cuit, l'int√©rieur fondant.</li>
-        <li>Laissez ti√©dir avant de d√©mouler et servez avec une boule de glace vanille.</li>
+        <li>Dans un saladier, battez les úufs avec le sucre jusquí‡ ce que le mÈlange blanchisse.</li>
+        <li>Ajoutez la farine, puis le mÈlange chocolat/beurre fondu.</li>
+        <li>Versez dans un moule beurrÈ et farinÈ.</li>
+        <li>Enfournez pendant 15 ‡ 20 minutes. LíextÈrieur doit Ítre cuit, líintÈrieur fondant.</li>
+        <li>Laissez tiÈdir avant de dÈmouler et servez avec une boule de glace vanille.</li>
       </ol>
     </div>
 
+    <!-- Conseil du chef -->
     <div class="section">
-      <h2>Conseil du chef üç´</h2>
-      <p>Ajoutez une pinc√©e de fleur de sel ou un c≈ìur coulant de caramel pour surprendre vos invit√©s !</p>
+      <h2>Conseil du chef ??</h2>
+      <p>Ajoutez une pincÈe de fleur de sel ou un cúur coulant de caramel pour surprendre vos invitÈs !</p>
     </div>
 
+    <!-- Minuteur -->
     <div class="timer">
-      <h3>‚è±Ô∏è Minuteur de cuisson : <span id="timer-display">20:00</span></h3>
-      <button class="btn" onclick="startTimer()">D√©marrer</button>
-      <button class="btn" onclick="resetTimer()">R√©initialiser</button>
+      <h3>?? Minuteur de cuisson : <span id="timer-display">20:00</span></h3>
+      <button class="btn" onclick="startTimer()">DÈmarrer</button>
+      <button class="btn" onclick="resetTimer()">RÈinitialiser</button>
     </div>
 
   </div>
 
+  <!-- Pied de page -->
+  <footer>
+    ?? Bon appÈtit ! ??
+  </footer>
+
+  <!-- Script JS -->
   <script>
     const baseIngredients = {
       "Chocolat noir": 200,
       "Beurre": 150,
       "Sucre": 150,
       "Farine": 50,
-      "≈íufs": 3,
-      "Pinc√©e de sel": 1
+      "åufs": 3,
+      "PincÈe de sel": 1
     };
 
     const unit = {
@@ -226,8 +245,8 @@
       "Beurre": "g",
       "Sucre": "g",
       "Farine": "g",
-      "≈íufs": "",
-      "Pinc√©e de sel": ""
+      "åufs": "",
+      "PincÈe de sel": ""
     };
 
     function updateIngredients() {
@@ -236,7 +255,7 @@
       list.innerHTML = "";
       for (let item in baseIngredients) {
         const value = baseIngredients[item] * (portions / 6);
-        const rounded = item === "≈íufs" || item === "Pinc√©e de sel" ? Math.round(value) : Math.round(value * 10) / 10;
+        const rounded = item === "åufs" || item === "PincÈe de sel" ? Math.round(value) : Math.round(value * 10) / 10;
         const li = document.createElement("li");
         li.textContent = `${rounded} ${unit[item]} ${item}`;
         list.appendChild(li);
@@ -262,19 +281,9 @@
           displayTime();
         } else {
           clearInterval(timer);
-          alert("üç∞ Le fondant est pr√™t !");
+          alert("?? Le fondant est prÍt !");
         }
       }, 1000);
     }
 
-    function resetTimer() {
-      clearInterval(timer);
-      seconds = 1200;
-      displayTime();
-    }
-
-    displayTime();
-  </script>
-
-</body>
-</html>
+    function reset
