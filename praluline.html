@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Praluline - Recette Gourmande</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff8f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #e04a6c; 
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #7a3e2f;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        footer {
+            text-align: center;
+            font-style: italic;
+            background-color: #f0e7e2;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .btn-print,
+        .btn-home {
+            background-color: #e04a6c; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+            margin-right: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-print:hover,
+        .btn-home:hover {
+            background-color: #c53f60;
+        }
+
+        .btn-container {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .btn-print,
+            .btn-home {
+                width: 100%;
+                margin: 0 0 15px 0;
+            }
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Recette de la Praluline</h1>
+    </header>
+
+    <main>
+        <div class="btn-container">
+            <button class="btn-home" onclick="window.location.href='index.html'" title="Retour à la page d'accueil">⬅️ Retour à l'accueil</button>
+            <button class="btn-print" onclick="window.print()">🖨️ Imprimer la recette</button>
+        </div>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Praluline_et_couteau_%28ao%C3%BBt_2022%29.jpg/960px-Praluline_et_couteau_%28ao%C3%BBt_2022%29.jpg" 
+             alt="Praluline maison">
+
+        <div class="section">
+            <h2>Ingrédients</h2>
+            <ul>
+                <li>250g de farine</li>
+                <li>30g de sucre</li>
+                <li>5g de sel</li>
+                <li>10g de levure fraîche de boulanger</li>
+                <li>3 œufs</li>
+                <li>150g de beurre doux (à température ambiante)</li>
+                <li>200g de pralines roses concassées</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Préparation</h2>
+
+            <ul>
+                <li>Dans un saladier ou un robot, mélangez la farine, le sucre, le sel et la levure (en veillant à ce que le sel ne touche pas la levure directement).</li>
+                <li>Ajoutez les œufs un à un et pétrissez jusqu’à obtention d'une pâte homogène.</li>
+                <li>Incorporez progressivement le beurre coupé en morceaux jusqu’à ce qu’il soit bien intégré.</li>
+                <li>Laissez pousser 1h30 à température ambiante (la pâte doit doubler de volume).</li>
+                <li>Dégazez la pâte, puis incorporez les pralines roses concassées.</li>
+                <li>Formez une boule et placez-la dans un moule beurré ou sur une plaque.</li>
+                <li>Laissez lever à nouveau pendant 1 heure.</li>
+                <li>Préchauffez le four à 180°C et faites cuire pendant 25 à 30 minutes jusqu'à belle coloration.</li>
+                <li>Laissez tiédir avant dégustation.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        💖 Une brioche unique et gourmande à partager ! Bon appétit 😋
+    </footer>
+
+</body>
+</html>
+

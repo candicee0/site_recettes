@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Mes Recettes Gourmandes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: #fff8f0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* empêche le scroll horizontal dû aux cookies */
+        }
+
+        header {
+            background-color: #ffdab9;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #8B4513;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 820px; /* Limite la largeur à 3 cartes + gaps */
+            margin: 0 auto; /* Centre horizontalement */
+        }
+
+        .card {
+            flex: 1 1 calc((100% - 60px) / 3); /* 3 cartes par ligne avec gap */
+            max-width: 250px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            object-fit: cover;
+        }
+
+        .card h2 {
+            font-size: 1.4em;
+            margin: 15px 0;
+            color: #b5651d;
+            min-height: 3em; /* pour homogénéiser la hauteur des titres */
+        }
+
+        /* Responsive : sur petits écrans, 1 ou 2 cartes par ligne */
+        @media (max-width: 800px) {
+            .container {
+                max-width: 100%;
+                padding: 20px;
+            }
+            .card {
+                flex: 1 1 calc((100% - 30px) / 2);
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                flex: 1 1 100%;
+            }
+        }
+
+        .cookie-fall {
+            position: fixed;
+            top: -50px;
+            font-size: 24px;
+            pointer-events: none;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            user-select: none;
+            z-index: 9999;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🍪 Nos Recettes Gourmandes 🍪</h1>
+    </header>
+
+    <div class="container">
+        <a href="praluline.html" class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Praluline_et_couteau_%28ao%C3%BBt_2022%29.jpg/960px-Praluline_et_couteau_%28ao%C3%BBt_2022%29.jpg" alt="Praluline, une brioche aux pralines roses" />
+            <h2>La Praluline</h2>
+        </a>
+
+        <a href="cookies.html" class="card">
+            <img src="https://cdn.vox-cdn.com/thumbor/nGo2TxA2LKwnTX-YR_NIPIn8PBo=/0x0:8688x5792/1200x800/filters:focal(3649x2201:5039x3591)/cdn.vox-cdn.com/uploads/chorus_image/image/64676667/shutterstock_661622035.0.jpg" alt="Cookies" />
+            <h2>Cookies</h2>
+        </a>
+
+        <a href="parisbrest.html" class="card">
+            <img src="https://i0.wp.com/www.lespepitesdecloe.com/wp-content/uploads/2019/03/recette-paris-brest-les-p%C3%A9pites-de-clo%C3%A9-4l.jpg?resize=1140%2C758&ssl=1" alt="Paris-Brest" />
+            <h2>Paris-Brest</h2>
+        </a>
+        
+        <a href="tartecitron.html" class="card">
+            <img src="https://assets.afcdn.com/recipe/20161201/2675_w2048h1536c1cx2808cy1872.jpg" alt="Tarte au citron" />
+            <h2>Tarte au citron</h2>
+        </a>
+        
+        <a href="fondantchocolat.html" class="card">
+            <img src="https://lacuisinedegeraldine.fr/wp-content/uploads/2020/12/DSC00413-scaled.jpg" alt="Fondant au chocolat" />
+            <h2>Fondant au chocolat</h2>
+        </a>
+        
+        <a href="cheesecake.html" class="card">
+            <img src="https://b769ed60.delivery.rocketcdn.me/wp-content/uploads/2021/01/cheesecake-basque-680x450.jpg" alt="Cheesecake" />
+            <h2>Cheesecake</h2>
+        </a>
+    </div>
+
+    <script>
+        const numCookies = 30; 
+
+        function randomRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        for(let i = 0; i < numCookies; i++) {
+            const cookie = document.createElement('div');
+            cookie.classList.add('cookie-fall');
+            cookie.textContent = '🍪';
+
+            cookie.style.left = `${randomRange(0, 100)}vw`;
+
+            cookie.style.animationDuration = `${randomRange(4, 8)}s`;
+
+            cookie.style.animationDelay = `${randomRange(0, 8)}s`;
+
+            cookie.style.fontSize = `${randomRange(16, 32)}px`;
+
+            document.body.appendChild(cookie);
+        }
+    </script>
+
+</body>
+</html>
