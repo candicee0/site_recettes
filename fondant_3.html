@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fondant au Chocolat</title>
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2909/2909763.png" type="image/png" />
   <style>
     :root {
       --main-color: #6b3e26;
@@ -134,29 +133,6 @@
       margin: 0.5rem;
     }
 
-    footer {
-      background-color: var(--main-color);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.95rem;
-      margin-top: 3rem;
-    }
-
-    .footer-links {
-      margin-top: 0.5rem;
-    }
-
-    .footer-links a {
-      color: var(--accent-color);
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
     @media print {
       header {
         page-break-after: avoid;
@@ -166,8 +142,7 @@
 
       .print-btn,
       .portion-control,
-      .timer,
-      footer {
+      .timer {
         display: none !important;
       }
 
@@ -191,11 +166,11 @@
   <div class="container">
 
     <div class="photo-container">
-      <img src="https://mapatisserie.fr/wp-content/uploads/2024/02/recette-fondant-chocolat-01.jpg" alt="Fondant au chocolat" id="recipe-photo" />
+      <img src=https://mapatisserie.fr/wp-content/uploads/2024/02/recette-fondant-chocolat-01.jpg" alt="Fondant au chocolat" id="recipe-photo" />
     </div>
 
     <div class="print-btn">
-      <button class="btn" onclick="window.print()">??? Imprimer la recette</button>
+      <button class="btn" onclick="window.print()">ğŸ–¨ï¸ Imprimer la recette</button>
     </div>
 
     <div class="portion-control">
@@ -204,48 +179,37 @@
     </div>
 
     <div class="section">
-      <h2>Ingrédients</h2>
+      <h2>IngrÃ©dients</h2>
       <ul id="ingredients-list">
-        <!-- Liste générée dynamiquement -->
+        <!-- Dynamically filled -->
       </ul>
     </div>
 
     <div class="section">
       <h2>Instructions</h2>
       <ol>
-        <li>Préchauffez le four à 180°C (th.6).</li>
+        <li>PrÃ©chauffez le four Ã  180Â°C (th.6).</li>
         <li>Faites fondre le chocolat et le beurre au bain-marie.</li>
-        <li>Dans un saladier, battez les œufs avec le sucre jusqu'à ce que le mélange blanchisse.</li>
-        <li>Ajoutez la farine, puis le mélange chocolat/beurre fondu.</li>
-        <li>Versez dans un moule beurré et fariné.</li>
-        <li>Enfournez pendant 15 à 20 minutes. L'extérieur doit être cuit, l'intérieur fondant.</li>
-        <li>Laissez tiédir avant de démouler et servez avec une boule de glace vanille.</li>
+        <li>Dans un saladier, battez les Å“ufs avec le sucre jusqu'Ã  ce que le mÃ©lange blanchisse.</li>
+        <li>Ajoutez la farine, puis le mÃ©lange chocolat/beurre fondu.</li>
+        <li>Versez dans un moule beurrÃ© et farinÃ©.</li>
+        <li>Enfournez pendant 15 Ã  20 minutes. L'extÃ©rieur doit Ãªtre cuit, l'intÃ©rieur fondant.</li>
+        <li>Laissez tiÃ©dir avant de dÃ©mouler et servez avec une boule de glace vanille.</li>
       </ol>
     </div>
 
     <div class="section">
-      <h2>Conseil du chef ??</h2>
-      <p>Ajoutez une pincée de fleur de sel ou un cœur coulant de caramel pour surprendre vos invités !</p>
+      <h2>Conseil du chef ğŸ«</h2>
+      <p>Ajoutez une pincÃ©e de fleur de sel ou un cÅ“ur coulant de caramel pour surprendre vos invitÃ©s !</p>
     </div>
 
     <div class="timer">
-      <h3>?? Minuteur de cuisson : <span id="timer-display">20:00</span></h3>
-      <button class="btn" onclick="startTimer()">Démarrer</button>
-      <button class="btn" onclick="resetTimer()">Réinitialiser</button>
+      <h3>â±ï¸ Minuteur de cuisson : <span id="timer-display">20:00</span></h3>
+      <button class="btn" onclick="startTimer()">DÃ©marrer</button>
+      <button class="btn" onclick="resetTimer()">RÃ©initialiser</button>
     </div>
 
   </div>
-
-  <footer>
-    <p>?? Merci de votre visite sur <strong>Mes Recettes Gourmandes</strong></p>
-    <p>Créé avec ?? par Clara · <a href="mailto:clara@email.com">Me contacter</a></p>
-    <div class="footer-links">
-      <a href="index.html">Accueil</a>
-      <a href="fondantchocolat.html">Fondant</a>
-      <a href="cookies.html">Cookies</a>
-      <a href="cheesecake.html">Cheesecake</a>
-    </div>
-  </footer>
 
   <script>
     const baseIngredients = {
@@ -253,8 +217,8 @@
       "Beurre": 150,
       "Sucre": 150,
       "Farine": 50,
-      "Œufs": 3,
-      "Pincée de sel": 1
+      "Å’ufs": 3,
+      "PincÃ©e de sel": 1
     };
 
     const unit = {
@@ -262,8 +226,8 @@
       "Beurre": "g",
       "Sucre": "g",
       "Farine": "g",
-      "Œufs": "",
-      "Pincée de sel": ""
+      "Å’ufs": "",
+      "PincÃ©e de sel": ""
     };
 
     function updateIngredients() {
@@ -271,4 +235,46 @@
       const list = document.getElementById("ingredients-list");
       list.innerHTML = "";
       for (let item in baseIngredients) {
-        const value = base
+        const value = baseIngredients[item] * (portions / 6);
+        const rounded = item === "Å’ufs" || item === "PincÃ©e de sel" ? Math.round(value) : Math.round(value * 10) / 10;
+        const li = document.createElement("li");
+        li.textContent = `${rounded} ${unit[item]} ${item}`;
+        list.appendChild(li);
+      }
+    }
+
+    updateIngredients();
+
+    // Minuteur
+    let timer, seconds = 1200;
+
+    function displayTime() {
+      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const s = String(seconds % 60).padStart(2, '0');
+      document.getElementById("timer-display").textContent = `${m}:${s}`;
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => {
+        if (seconds > 0) {
+          seconds--;
+          displayTime();
+        } else {
+          clearInterval(timer);
+          alert("ğŸ° Le fondant est prÃªt !");
+        }
+      }, 1000);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      seconds = 1200;
+      displayTime();
+    }
+
+    displayTime();
+  </script>
+
+</body>
+</html>
