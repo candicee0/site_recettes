@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fondant au Chocolat</title>
+  <style>
+    :root {
+      --main-color: #6b3e26;
+      --accent-color: #c1946a;
+      --bg-color: #fffaf5;
+      --text-color: #333;
+      --font-main: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background: var(--main-color);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .photo-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .photo-container img {
+      max-width: 40%;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .photo-container img:hover {
+      transform: scale(1.03);
+    }
+
+    .section {
+      margin-bottom: 2rem;
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .section h2 {
+      color: var(--main-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    ul, ol {
+      padding-left: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent-color);
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #a37756;
+    }
+
+    .print-btn {
+      text-align: right;
+      margin-bottom: 2rem;
+    }
+
+    .portion-control {
+      margin-bottom: 1rem;
+    }
+
+    .portion-control label {
+      font-weight: bold;
+    }
+
+    .portion-control input {
+      width: 60px;
+      padding: 0.4rem;
+      font-size: 1rem;
+      text-align: center;
+      margin-left: 0.5rem;
+    }
+
+    .timer {
+      background: #fff0e6;
+      padding: 1rem;
+      margin-top: 2rem;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .timer h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .timer span {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .timer button {
+      margin: 0.5rem;
+    }
+
+    @media print {
+      header {
+        page-break-after: avoid;
+        padding: 0.5rem !important;
+        margin: 0 !important;
+      }
+
+      .print-btn,
+      .portion-control,
+      .timer {
+        display: none !important;
+      }
+
+      .container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+
+      h1 {
+        font-size: 1.8rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Fondant au Chocolat</h1>
+  </header>
+
+  <div class="container">
+
+    <div class="photo-container">
+      <img src=https://mapatisserie.fr/wp-content/uploads/2024/02/recette-fondant-chocolat-01.jpg" alt="Fondant au chocolat" id="recipe-photo" />
+    </div>
+
+    <div class="print-btn">
+      <button class="btn" onclick="window.print()">🖨️ Imprimer la recette</button>
+    </div>
+
+    <div class="portion-control">
+      <label for="portionInput">Nombre de personnes :</label>
+      <input type="number" id="portionInput" value="6" min="1" onchange="updateIngredients()" />
+    </div>
+
+    <div class="section">
+      <h2>Ingrédients</h2>
+      <ul id="ingredients-list">
+        <!-- Dynamically filled -->
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Instructions</h2>
+      <ol>
+        <li>Préchauffez le four à 180°C (th.6).</li>
+        <li>Faites fondre le chocolat et le beurre au bain-marie.</li>
+        <li>Dans un saladier, battez les œufs avec le sucre jusqu'à ce que le mélange blanchisse.</li>
+        <li>Ajoutez la farine, puis le mélange chocolat/beurre fondu.</li>
+        <li>Versez dans un moule beurré et fariné.</li>
+        <li>Enfournez pendant 15 à 20 minutes. L'extérieur doit être cuit, l'intérieur fondant.</li>
+        <li>Laissez tiédir avant de démouler et servez avec une boule de glace vanille.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>Conseil du chef 🍫</h2>
+      <p>Ajoutez une pincée de fleur de sel ou un cœur coulant de caramel pour surprendre vos invités !</p>
+    </div>
+
+    <div class="timer">
+      <h3>⏱️ Minuteur de cuisson : <span id="timer-display">20:00</span></h3>
+      <button class="btn" onclick="startTimer()">Démarrer</button>
+      <button class="btn" onclick="resetTimer()">Réinitialiser</button>
+    </div>
+
+  </div>
+
+  <script>
+    const baseIngredients = {
+      "Chocolat noir": 200,
+      "Beurre": 150,
+      "Sucre": 150,
+      "Farine": 50,
+      "Œufs": 3,
+      "Pincée de sel": 1
+    };
+
+    const unit = {
+      "Chocolat noir": "g",
+      "Beurre": "g",
+      "Sucre": "g",
+      "Farine": "g",
+      "Œufs": "",
+      "Pincée de sel": ""
+    };
+
+    function updateIngredients() {
+      const portions = parseInt(document.getElementById("portionInput").value);
+      const list = document.getElementById("ingredients-list");
+      list.innerHTML = "";
+      for (let item in baseIngredients) {
+        const value = baseIngredients[item] * (portions / 6);
+        const rounded = item === "Œufs" || item === "Pincée de sel" ? Math.round(value) : Math.round(value * 10) / 10;
+        const li = document.createElement("li");
+        li.textContent = `${rounded} ${unit[item]} ${item}`;
+        list.appendChild(li);
+      }
+    }
+
+    updateIngredients();
+
+    // Minuteur
+    let timer, seconds = 1200;
+
+    function displayTime() {
+      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const s = String(seconds % 60).padStart(2, '0');
+      document.getElementById("timer-display").textContent = `${m}:${s}`;
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => {
+        if (seconds > 0) {
+          seconds--;
+          displayTime();
+        } else {
+          clearInterval(timer);
+          alert("🍰 Le fondant est prêt !");
+        }
+      }, 1000);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      seconds = 1200;
+      displayTime();
+    }
+
+    displayTime();
+  </script>
+
+</body>
+</html>
