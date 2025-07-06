@@ -33,9 +33,20 @@
       font-size: 2.5rem;
     }
 	
-	.back-home {
-	  margin-bottom: 1rem;
-	}
+	.btn-home {
+            background-color: #8c4222; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+            margin-right: 10px;
+            display: inline-block;
+            text-align: center;
+    }
 
 	.btn-arrow {
 	  display: inline-block;
@@ -181,7 +192,9 @@
     <h1>Fondant au Chocolat</h1>
   </header>
 
-	<div class="container">
+	<div class="btn-container">
+            <button class="btn-home" onclick="window.location.href='index.html'" title="Retour à la page d'accueil">?? Retour à l'accueil</button>
+	</div>
 
     <div class="photo-container">
       <img src=https://mapatisserie.fr/wp-content/uploads/2024/02/recette-fondant-chocolat-01.jpg" alt="Fondant au chocolat" id="recipe-photo" />
